@@ -1,0 +1,16 @@
+{
+  "name": "koa2_demo1",
+  "version": "1.0.0",
+  "description": "koa study",
+  "main": "app.js",
+  "scripts": {
+    "start": "app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yangguochao",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "2.0.0",
+    "koa-router": "7.0.0"
+  }
+}
