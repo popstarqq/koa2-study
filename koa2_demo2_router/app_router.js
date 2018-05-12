@@ -1,3 +1,5 @@
+//Koa-router 中间件demo1
+
 const Koa = require('koa');
 
 // 注意require('koa-router')返回的是函数:
@@ -5,20 +7,24 @@ const router = require('koa-router')();
 
 const app = new Koa();
 
-// log request URL:
-app.use(async (ctx, next) => {
-    console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
-    await next();
-});
-
 // add url-route:
-router.get('/hello/:name', async (ctx, next) => {
-    var name = ctx.params.name;
-    ctx.response.body = `<h1>Hello, ${name}!</h1>`;
+router.get('/', async (ctx) => {
+    let html=
+    `
+        <ul>
+        <li><a href="/hello">/hello</a></li>
+        <li><a href="/error">/error</a></li>
+        </ul>
+    `
+    ctx.response.body =html;
 });
 
-router.get('/', async (ctx, next) => {
-    ctx.response.body = '<h1>Index</h1>';
+router.get('/hello', async (ctx) => {
+    ctx.response.body = `<h1>Hello</h1>`;
+});
+
+router.get('/error', async (ctx) => {
+    ctx.response.body = `<h1>error</h1>`;
 });
 
 // add router middleware:
