@@ -1,11 +1,11 @@
 //Koa-router 中间件demo1
 
 const Koa = require('koa');
-
+const app = new Koa();
 // 注意require('koa-router')返回的是函数:
 const router = require('koa-router')();
 
-const app = new Koa();
+
 
 // add url-route:
 router.get('/', async (ctx) => {
